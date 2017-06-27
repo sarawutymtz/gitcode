@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Marker: Simple</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ">
+      <br>
+        <div class="form-group">
+          <label  class="col-sm-offset-1 col-sm-2">ประเภทที่ต้องการค้นหา : </label>
+          <div class="col-sm-3">
+            <select class="col-md-3 form-control" name="type" id="type" onchange="changeType(this)">
+              <option value="">เลือกประเภท</option>
+              <option value="school">โรงเรียน</option>
+              <option value="bank">ธนาคาร</option>
+              <option value="food">ศูนย์อาหาร</option>
+              <option value="gas_station">ปั้มน้ำมัน</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+<div id="map"></div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="./js/markerdb.js"></script>
+
+  </body>
+</html>
+
