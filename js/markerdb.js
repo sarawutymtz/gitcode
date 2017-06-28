@@ -1,6 +1,8 @@
 var map;
 var infowindow;
 var key = 'AIzaSyDZC-zX8YbC8vtHgD47twHl_mI4G3hsJn8';
+var markers = [];
+
 var gismap = {
 
     initMap : function () {
@@ -48,7 +50,12 @@ var gismap = {
         for (var i = 0; i < data.length; i++) {
           gismap.createMarker(data[i]);
         }
+
+       
       }
+       var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      
     }, createMarker : function (place){
     var infowindow = new google.maps.InfoWindow();
     var image = {
@@ -61,6 +68,9 @@ var gismap = {
         map: map ,
         icon:image
       });   
+
+    markers.push(marker);
+
       google.maps.event.addListener(marker, 'click', function() {
         
       var content='<div><strong>' + place.name + '</strong><br>' +
@@ -71,6 +81,7 @@ var gismap = {
   }
 
 }
+
 
 
   function changeType(obj)
