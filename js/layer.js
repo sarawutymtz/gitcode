@@ -86,21 +86,12 @@ var gismap = {
 
                 }
                 
-                
             });
 
             gismap.getstylelayer();
 
         });
         
-
-        // map.data.setStyle({
-        //     fillColor: 'green',
-        //     fillOpacity : 0.3,
-        //     strokeWeight: 1,
-        //     strokeOpacity : 0.9
-        // });
-
         map.data.addListener('mouseover', function(event) {
             map.data.revertStyle();
             map.data.overrideStyle(event.feature, {fillColor: 'green'});
@@ -234,28 +225,11 @@ var gismap = {
         var chart = new Highcharts.Chart(options, function(chart) {
         });
         
-    }, addpoint : function(position){
-
-        console.log(position);
-     //   https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=13.789586,100.581838&radius=300000&types=food&name=cruise&key=AIzaSyDZC-zX8YbC8vtHgD47twHl_mI4G3hsJn8
-
-        // fetch(this.urlapi()+'province/layer', { 
-        //     headers: {
-        //       'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-        //       'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-        //     },  
-        //     method: "POST",
-        //     body : "id="+event.feature.getProperty('ID_1')
-        // }).then((resp) => resp.json()).then(function(data) {
-        //     gismap.getdetail(event, data.data);
-        // });
-
     }, getstylelayer : function (){
         
         $( "#listpepole" ).delegate( ".list-group-item", "mouseover", function() {
             id = $(this).attr('data-id');
             map.data.overrideStyle(layerfuture[id], {fillColor: 'green'});
-            //getCenter().lat(), 
 
         });
 
@@ -279,13 +253,6 @@ var gismap = {
 
         });
 
-
-        
-
-        // map.data.addListener('mouseover', function(event) {
-        //     map.data.revertStyle();
-        //     map.data.overrideStyle(event.feature, {fillColor: '#f00'});
-        // });
     }
 
 }
