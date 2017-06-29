@@ -1,6 +1,5 @@
 var map;
 var infowindow;
-var key = 'AIzaSyDZC-zX8YbC8vtHgD47twHl_mI4G3hsJn8';
 var layerfuture;
 
 var gismap = {
@@ -40,7 +39,7 @@ var gismap = {
 
         // NOTE: This uses cross-domain XHR, and may not work on older browsers.
         map.data.loadGeoJson(
-            '../layer/province.geojson');
+            './../layer/province.geojson');
 
         var scalecolor = chroma.scale(['yellow', 'red']).domain([0,100]); //chroma.scale(['orange', 'red']).domain([0,100]).classes(20);
 
@@ -242,11 +241,11 @@ var gismap = {
             id = $(this).attr('data-id');
 
             var bounds = new google.maps.LatLngBounds(); 
-            map.data.forEach(function(feature){
+            //map.data.forEach(function(feature){
               layerfuture[id].getGeometry().forEachLatLng(function(latlng){
                  bounds.extend(latlng);
               });
-            });
+            //});
 
             event = { feature : layerfuture[id]};
             gismap.getdata(event,bounds);
